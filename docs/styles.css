@@ -1,0 +1,145 @@
+body{
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 300;
+     
+}
+.head{
+    width: 100%;
+    padding-top: 0%;
+    margin: auto;
+    background-color: black;
+    
+}
+header{
+    background-color:#F54B42;
+}
+header::after{
+    content: '';
+    display: table;
+    clear: both;
+}
+nav{
+    float: right;
+    color: #F54B42;
+}
+nav ul{
+    margin: 0%;
+    padding: 0;
+    list-style: none;
+
+}
+nav li{
+    display: inline-block;
+    margin-left: 70px;
+    font-size: 40px;
+    height: 50px;
+    position: relative;
+    padding-bottom: 0;
+    padding-left:20px ;
+}
+nav a{
+    color: #444;
+    text-decoration:none ;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+nav a:hover{
+    color: white;
+}
+nav a::before{
+    content: '';
+    display: block;
+    height: 5px;
+    width: 100%;
+    background-color: #444;
+
+    position: absolute;
+    top: 0;
+    width: 0%;
+    transition: all ease-in-out 400ms;
+}
+nav a:hover::before{
+    width:100%;
+}
+
+
+@import url('https://fonts.googleapis.com/css?family=poppins:400,500,600,700,800,900&display=swap');
+h1{
+    position: relative;
+    margin:20px 0 0;
+    font-size: 4em;
+    font-weight: 1000;
+    color: honeydew;
+    z-index: 1;
+    overflow: hidden;
+}
+h1:before{
+    content: '';
+    position: absolute;
+    left: 120%;
+    width: 120%;
+    height: 100%;
+    background: linear-gradient(90deg,transparent 0%,#000 5%,#000 100%);
+    animation: animate 5.5s linear forwards;
+    animation-delay: 5 seconds;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+}
+@keyframes animate{
+    0%{
+        left: 110%;
+    }
+    100%{
+        left: -200%;
+    }
+}
+h1 span{
+    color: white;
+}
+.one{
+    text-align: center;
+    position: absolute;
+}
+.slide-1,.slide-2,.slide-3{
+    display: block;
+    position: absolute;
+    text-align: center;
+    background-size: cover;
+    width: 100%;
+    background-repeat: no-repeat;
+}
+.slide-1{
+    animation: fade1 10s infinite;
+}  
+.slide-2{
+    animation: fade2 10s infinite;
+}  
+.slide-3{
+    animation: fade3 10s infinite;
+}  
+@keyframes fade1{
+    0%{opacity: 1;}
+    25%{opacity: 0;}
+    50%{opacity: 0;}
+    75%{opacity: 0;}
+    100%{opacity: 0;}
+}
+@keyframes fade2{
+    0%{opacity: 0;}
+    25%{opacity: 1;}
+    50%{opacity: 0;}
+    75%{opacity: 0;}
+    100%{opacity: 0;}
+}
+@keyframes fade3{
+    0%{opacity: 0;}
+    25%{opacity: 0;}
+    50%{opacity: 1;}
+    75%{opacity: 0;}
+    100%{opacity: 0;}
+}
+
+
+
+
