@@ -1,3 +1,13 @@
 from django.db import models
 
 # Create your models here.
+class Charity(models.Model):
+    name = models.CharField(max_length=70, blank=False, default='')
+    email = models.EmailField()
+    description = models.TextField()
+    location = models.CharField(max_length=70, blank=False, default='')
+    phone_number = models.CharField(max_length = 10,blank =True)
+    target_amount = models.PositiveIntegerField()
+    beneficiary = models.CharField(max_length=70, blank=False, default='')
+    donors = models.CharField(max_length=70, blank=False, default='')
+    registration_date = models.DateTimeField(auto_now_add=True)
