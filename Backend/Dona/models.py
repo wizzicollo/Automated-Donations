@@ -12,3 +12,4 @@ class Charity(models.Model):
     beneficiary = models.CharField(max_length=70, blank=False, default='')
     donors = models.CharField(max_length=70, blank=False, default='')
     registration_date = models.DateTimeField(auto_now_add=True)
+    approved = models.BooleanField(default=False)
