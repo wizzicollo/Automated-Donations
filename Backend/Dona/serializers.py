@@ -13,4 +13,6 @@ class CharitySerializer(serializers.ModelSerializer):
         'target_amount',
         'beneficiary',
         'donors',
-        'registration_date',)
+        'registration_date',
+        'approved',)
+        
