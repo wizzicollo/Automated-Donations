@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from .models import Donation
 from .serializers import DonationSerializer
 from rest_framework import mixins
-\
+
 
 
 class DonationViewset(viewsets.GenericViewSet,mixins.ListModelMixin,mixins.UpdateModelMixin,mixins.CreateModelMixin,
