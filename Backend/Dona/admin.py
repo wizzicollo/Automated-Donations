@@ -1,5 +1,11 @@
 from django.contrib import admin
-from .models import Profile
+from .models import Donation
+from .models import Story
+from .models import Donor
+from .models import Charity
 
-# Register your models here.
-admin.site.register(Profile)
+
+admin.site.register(Donation)
+admin.site.register(Story)
+admin.site.register(Donor)
+admin.site.register(Charity)

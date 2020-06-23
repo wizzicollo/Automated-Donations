@@ -13,11 +13,39 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
-from django.urls import path,  include
+from django.urls import path, include
+from Dona import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('Dona.urls')),
+    path('api/', include('authentication.urls')),
+    path('api/', include('profapp.urls')),
+    path('api/donation', include('Dona.urls')),
+    path('api/story', include('Dona.urls')),
+    path('api/donor/', include('Dona.urls')),
+
    
 ]
+
+from django.contrib import admin
+from django.urls import path
+from django.conf.urls import url, include 
+from rest_framework.authtoken.views import obtain_auth_token
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    url(r'^', include('Dona.urls')),
+]
+
+
+   
+
+
+
+
+
+
+
+

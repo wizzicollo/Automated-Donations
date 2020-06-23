@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import cloudinary
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -37,23 +38,35 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Dona.apps.DonaConfig',
+    # 'Dona.apps.DonaConfig',
+     #install our app here
+    'authentication.apps.AuthenticationConfig',
+    'profapp.apps.ProfappConfig',
+    #packages installed
     'rest_framework',
     'rest_framework.authtoken',
-    'crispy_forms',
-    'tinymce',
-    
+    'corsheaders',
+    'Dona',
+   
 ]
 
+
 REST_FRAMEWORK = {
-  'DEFAULT_AUTHENTICATION_CLASSES': (
-    'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
-    # 'EXCEPTION_HANDLER': 'conduit.apps.core.exceptions.core_exception_handler',
-    # 'NON_FIELD_ERRORS_KEY': 'error',
-  ),
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+    ]
 }
 
+cloudinary.config(
+  cloud_name = os.environ.get('CLOUD_NAME'),
+  api_key = os.environ.get('API_KEY'),
+  api_secret = os.environ.get('API_SECRET'),
+  secure = True
+)
+
 MIDDLEWARE = [
+     # CORS
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -96,7 +109,7 @@ WSGI_APPLICATION = 'Donations.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'donations',
+        'NAME': 'donate',
         'USER': 'collins',
         'PASSWORD':'1234abcd',
     }
@@ -126,7 +139,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Nairobi'
 
 USE_I18N = True
 
@@ -147,5 +160,9 @@ STATICFILES_DIRS = (
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+AUTH_USER_MODEL = 'authentication.User'
 
-# AUTH_USER_MODEL = 'authentication.User'
+CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:8081',
+)

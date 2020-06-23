@@ -1,19 +1,31 @@
-
 from rest_framework import serializers
+from .models import Donation
+from .models import Story
+from .models import Donor
+from Dona import models
+from Dona.models import Charity
 
-from .models import Profile
-
-
-class ProfileSerializer(serializers.ModelSerializer):
-    username = serializers.CharField(source='user.username')
-    bio = serializers.CharField(allow_blank=True, required=False)
-    image = serializers.SerializerMethodField()
-
+class DonationSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Profile
-        fields = ('username', 'bio', 'image',)
-        read_only_fields = ('username',)
+        fields = '__all__'
+        model = Donation
 
-    def get_image(self, obj):
-        if obj.image:
-            return obj.image
+
+class StorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Story
+        fields = '__all__'
+
+
+class DonorSerializer(serializers.ModelSerializer):
+    class Meta:
+        fields = '__all__'
+        model = models.Donor   
+
+
+
+class CharitySerializer(serializers.ModelSerializer):
+ 
+    class Meta:
+        model = Charity
+        fields = '__all__'       
