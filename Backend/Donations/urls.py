@@ -18,27 +18,31 @@ from django.contrib import admin
 from django.urls import path, include
 from Dona import views
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('api/', include('authentication.urls')),
-    path('api/', include('profapp.urls')),
-    path('api/donation', include('Dona.urls')),
-    path('api/story', include('Dona.urls')),
-    path('api/donor/', include('Dona.urls')),
-
-   
-]
-
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url, include 
 from rest_framework.authtoken.views import obtain_auth_token
+from django.urls import include, path
+from rest_framework import routers
+from Dona import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^', include('Dona.urls')),
+    path('api/', include('authentication.urls')),
+    path('api/', include('profapp.urls')),
+    path('api/', include('Dona.urls')),
+    path('api/', include('Dona.urls')),
+    path('api/', include('Dona.urls')),
+    path('api/', include('Dona.urls')),
+    path('api/', include('rest_framework.urls', namespace='rest_framework'))
+   
 ]
 
+
+# urlpatterns = [
+#     path('', include(router.urls)),
+#     path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+# ]
 
    
 
