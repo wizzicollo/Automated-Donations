@@ -15,9 +15,11 @@ class Profile(TimestampedModel):
     )
     bio = models.TextField(blank=True)
     image = models.URLField(blank=True)
-    image = models.ImageField(upload_to='images/')
+    image = models.ImageField(upload_to='images/', blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    image = models.URLField(blank=True, default='default.png')
+    story_image = models.ImageField(upload_to='profiles/', blank=True)
 
     def __str__(self):
         return self.user.username

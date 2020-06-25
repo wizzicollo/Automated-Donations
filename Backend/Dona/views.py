@@ -1,50 +1,23 @@
+from django.conf import settings
 from django.shortcuts import render
 from rest_framework import viewsets
 from rest_framework.response import Response
+from rest_framework.parsers import JSONParser
+from django.http.response import JsonResponse
 from .models import Donation
-from .serializers import DonationSerializer
-from rest_framework import mixins
-
-
-from django.shortcuts import render
-from rest_framework import viewsets
-from rest_framework.response import Response
 from .models import Story
-from .serializers import StorySerializer
-from rest_framework import mixins
-
-
-
-from django.shortcuts import render
-from rest_framework import viewsets
-from rest_framework.response import Response
 from .models import Donor
+from .models import Charity
+from .serializers import DonationSerializer
 from .serializers import DonorSerializer
-
-
-
-from django.shortcuts import render
-from django.http.response import JsonResponse
-from rest_framework.parsers import JSONParser 
+from .serializers import StorySerializer
+from .serializers import CharitySerializer
+from rest_framework import mixins
 from rest_framework import status
 from rest_framework.views import APIView
-from .models import Charity
-from .serializers import CharitySerializer
 from rest_framework.decorators import api_view
-from rest_framework.response import Response
 
 
-
-from django.shortcuts import render
-from django.http.response import JsonResponse
-from rest_framework.parsers import JSONParser 
-from rest_framework import status
-from rest_framework.views import APIView
-from .models import Charity
-from .serializers import CharitySerializer
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
-from rest_framework import viewsets
 
 
 class DonationViewset(viewsets.GenericViewSet,mixins.ListModelMixin,mixins.UpdateModelMixin,mixins.CreateModelMixin,
@@ -77,5 +50,5 @@ class CharityViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows users to be viewed or edited.
     """
-    queryset = Charity.objects.all().order_by('name')
+    queryset = Charity.objects.all()
     serializer_class = CharitySerializer

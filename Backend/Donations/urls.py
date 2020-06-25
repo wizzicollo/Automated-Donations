@@ -31,9 +31,6 @@ urlpatterns = [
     path('api/', include('authentication.urls')),
     path('api/', include('profapp.urls')),
     path('api/', include('Dona.urls')),
-    path('api/', include('Dona.urls')),
-    path('api/', include('Dona.urls')),
-    path('api/', include('Dona.urls')),
     path('api/', include('rest_framework.urls', namespace='rest_framework'))
    
 ]

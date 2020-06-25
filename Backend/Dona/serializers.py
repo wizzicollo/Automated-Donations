@@ -28,4 +28,4 @@ class CharitySerializer(serializers.ModelSerializer):
  
     class Meta:
         model = Charity
-        fields = '__all__'       
+        fields =  '__all__'    

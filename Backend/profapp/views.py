@@ -12,9 +12,7 @@ class ProfileRetrieveAPIView(RetrieveAPIView):
 
     def retrieve(self, request, username, *args, **kwargs):
         try:
-           profile = Profile.objects.select_related('user').get(
-                user__username=username
-            )
+           profile = Profile.objects.filter(user__username = username)
         except Profile.DoesNotExist:
             raise ProfileDoesNotExist
 
