@@ -17,7 +17,6 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from Dona import views
-
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url, include 
@@ -31,8 +30,8 @@ urlpatterns = [
     path('api/', include('authentication.urls')),
     path('api/', include('profapp.urls')),
     path('api/', include('Dona.urls')),
-    path('api/', include('rest_framework.urls', namespace='rest_framework'))
-   
+    path('api/', include('rest_framework.urls', namespace='rest_framework')),
+    # path('api-auth/', include('rest_framework.urls')),
 ]
 
 

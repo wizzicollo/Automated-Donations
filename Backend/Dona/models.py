@@ -16,8 +16,10 @@ class Charity(models.Model):
     target_amount = models.PositiveIntegerField(default='1')
     amount_raised = models.PositiveIntegerField(default='1', blank=True)
     user_id = models.ForeignKey(User, on_delete=models.CASCADE, blank=True)
-    def __str__(self):
-        return self.name
+    # user_id = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,  default=None)
+
+    # def __str__(self):
+    #     return self.name
 
 class Donation(models.Model):
     donor_id = models.ForeignKey(Donor, on_delete=models.CASCADE ,default='1', blank=True)
