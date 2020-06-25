@@ -109,9 +109,9 @@ WSGI_APPLICATION = 'Donations.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'donai',
-        'USER': 'collins',
-        'PASSWORD':'1234abcd',
+        'NAME': 'donations',
+        'USER': 'paulgichuki',
+        'PASSWORD':'',
     }
 }
 
