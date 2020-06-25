@@ -20,3 +20,11 @@ class Profile(TimestampedModel):
 
     def __str__(self):
         return self.user.username
+
+
+class Charity(models.Model):
+    location = models.CharField(max_length =10, null=True, blank=True, default= 'kilimani')
+    target = models.CharField(max_length =50, null=True, blank=True, default= 'lower class')
+    amount_raise = models.DecimalField(default = 0.00, decimal_places=2, max_digits=1000)
+    
+
