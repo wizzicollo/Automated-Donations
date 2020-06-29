@@ -9,6 +9,7 @@ import datetime as dt
 
 class Donor(models.Model):
     user_id = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,  default=None)
+
   
         
 class Charity(models.Model):
@@ -18,8 +19,9 @@ class Charity(models.Model):
     user_id = models.ForeignKey(User, on_delete=models.CASCADE, blank=True)
     # user_id = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,  default=None)
 
-    # def __str__(self):
-    #     return self.name
+    def __str__(self):
+        return self.name
+
 
 class Donation(models.Model):
     donor_id = models.ForeignKey(Donor, on_delete=models.CASCADE ,default='1', blank=True)
