@@ -24,22 +24,11 @@ class RegistrationSerializer(serializers.ModelSerializer):
         fields = ['first_name', 'last_name', 'email',  'username', 'is_charity', 'password', 'password2', 'token']
 
     def create(self, validated_data):
-        first_name = validated_data["first_name"]
-        last_name = validated_data["last_name"]
-        username = validated_data["username"]
-        email = validated_data["email"]
-        is_charity = validated_data["is_charity"]
-        password = validated_data["password"]
-        password2 = validated_data["password2"]
-        if (email and User.objects.filter(email=email).exclude(username=username).exists()):
-            raise serializers.ValidationError(
-                {"email": "Email addresses must be unique."})
-        if password != password2:
+        if validated_data.get('password') != validated_data.get('password2'):
             raise serializers.ValidationError(
                 {"password": "The two passwords differ."})
-        user = User(first_name=first_name, last_name=last_name, username=username, is_charity=is_charity, email=email)
-        user.set_password(password)
-        user.save()
+        validated_data.pop('password2')
+        user = User.objects.create_user(**validated_data)
         return user
 
 
