@@ -42,8 +42,6 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'cloudinary_storage',
-    'cloudinary',
     'django.contrib.staticfiles',
     'Dona',
     'rest_framework',
@@ -145,9 +143,3 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
-CLOUDINARY_STORAGE = {
-'CLOUD_NAME': 'iano',
-'API_KEY': '915994129371382',
-'API_SECRET': 'AddMQqpgtr0FIo4PK3mMK8jOvVA'
-}
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'

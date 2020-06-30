@@ -6,6 +6,7 @@ from rest_framework.parsers import JSONParser
 from .models import Story
 from .models import Charity
 from .serializers import StoryMiniSerializer
+from .serializers import CharityMiniSerializer
 from .serializers import StorySerializer
 from .serializers import CharitySerializer
 from rest_framework import mixins
@@ -40,3 +41,8 @@ class CharityViewSet(viewsets.ModelViewSet):
     """
     queryset = Charity.objects.all()
     serializer_class = CharitySerializer
+    
+    def list(self, request, *args, **kwargs):
+        charities = Charity.objects.all()
+        serializer = CharityMiniSerializer(charities, many=True)
+        return Response(serializer.data)

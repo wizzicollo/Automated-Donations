@@ -8,19 +8,19 @@ import datetime as dt
 
         
 class Charity(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE,blank=True, null=False)
     location = models.CharField(max_length=70, blank=False, default='')
     target_amount = models.PositiveIntegerField(default='1')
     amount_raised = models.PositiveIntegerField(default='1', blank=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE,blank=True, null=False)
     
     
+
 
 
 
         
 class Story(models.Model):
     charity = models.ForeignKey(Charity, on_delete=models.CASCADE,null=True)
-    image = models.ImageField(upload_to='images/', blank=True)
     title = models.CharField(max_length=60)
     description = models.TextField()
     location = models.CharField(max_length=20)
