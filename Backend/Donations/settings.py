@@ -27,7 +27,9 @@ SECRET_KEY = 'nezhyo&ne-xa!yo5g-$3%urufxq%z@iaa%(4r(7o@t(4&76%37'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+CORS_ORIGIN_WHITELIST = [
+    "http://localhost:4200"
+]
 
 # Application definition
 
@@ -120,9 +122,9 @@ WSGI_APPLICATION = 'Donations.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'donai',
-        'USER': 'collins',
-        'PASSWORD':'1234abcd',
+        'NAME': 'donation',
+        'USER': 'biron',
+        'PASSWORD':'Biron4745',
     }
 }
 
@@ -173,10 +175,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # AUTH_USER_MODEL = 'authentication.User'
 
-CORS_ORIGIN_ALLOW_ALL = False
-CORS_ORIGIN_WHITELIST = (
-    'http://localhost:8081',
-)
+# CORS_ORIGIN_ALLOW_ALL = False
+
 
 # REST_FRAMEWORK = {
 #     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',

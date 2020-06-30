@@ -25,6 +25,8 @@ class Donation(models.Model):
     donor_id = models.ForeignKey(Donor, on_delete=models.CASCADE ,default='1', blank=True)
     charity_id = models.ForeignKey(Charity, on_delete=models.CASCADE ,default='1', blank=True)
     amount = models.PositiveIntegerField()
+    reminder = models.DurationField()
+    card_number = models.IntegerField()
     date = models.DateTimeField(auto_now_add=True )
  
 
