@@ -1,3 +1,4 @@
+from .serializers import StoryMiniSerializer
 from django.conf import settings
 from django.shortcuts import render
 from rest_framework import viewsets
@@ -16,6 +17,8 @@ from rest_framework import mixins
 from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.decorators import api_view
+from .serializers import StoryMiniSerializer
+
 
 
 
@@ -36,6 +39,12 @@ class StoryViewset(viewsets.GenericViewSet,mixins.ListModelMixin,mixins.UpdateMo
     '''
     queryset = Story.objects.all()
     serializer_class = StorySerializer
+
+   
+def list(self, request, *args, **kwargs):
+        stories = Story.objects.all()
+        serializer = StoryMiniSerializer(stories, many=True)
+        return Response(serializer.data)
 
 
 class DonorViewset(viewsets.ModelViewSet):

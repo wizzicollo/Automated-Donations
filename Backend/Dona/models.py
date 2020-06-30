@@ -9,8 +9,8 @@ import datetime as dt
 
 class Donor(models.Model):
     user_id = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,  default=None)
-
-  
+    reminder = models.DurationField()
+    card_number = models.IntegerField()
         
 class Charity(models.Model):
     location = models.CharField(max_length=70, blank=False, default='')
@@ -47,7 +47,7 @@ class Story(models.Model):
     charity_id = models.ForeignKey(Charity, on_delete=models.CASCADE ,default='1', blank=True)
     title = models.CharField(max_length=60)
     description = models.TextField()
-    story_image = models.ImageField(upload_to='story/', blank=True)
+    # story_image = models.ImageField(upload_to='story/', blank=True)
     location = models.CharField(max_length=20)
 
         
