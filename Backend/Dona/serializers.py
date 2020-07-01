@@ -17,6 +17,12 @@ class StorySerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+class StoryMiniSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Story
+        fields = '__all__'
+
+
 class DonorSerializer(serializers.ModelSerializer):
     class Meta:
         fields = '__all__'
@@ -28,4 +34,4 @@ class CharitySerializer(serializers.ModelSerializer):
  
     class Meta:
         model = Charity
-        fields =  '__all__'    
+        fields =  '__all__'   

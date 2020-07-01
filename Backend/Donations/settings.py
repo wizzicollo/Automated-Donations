@@ -42,8 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # 'Dona.apps.DonaConfig',
      #install our app here
-    'authentication.apps.AuthenticationConfig',
-    'profapp.apps.ProfappConfig',
+    'authentication',
+    'profapp',
     #packages installed
     'rest_framework',
     'rest_framework.authtoken',
