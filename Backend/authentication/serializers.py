@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth import authenticate
-from profapp.serializers import ProfileSerializer
+# from profapp.serializers import ProfileSerializer
 from .models import User
 
 
@@ -56,7 +56,7 @@ class LoginSerializer(serializers.Serializer):
 
         if user is None:
             raise serializers.ValidationError(
-                'A user with this email and password was not found.'
+                'A user with this username and password was not found.'
             )
 
         if not user.is_active:
@@ -79,7 +79,7 @@ class UserSerializer(serializers.ModelSerializer):
         min_length=8,
         write_only=True
     )
-    profile = ProfileSerializer(write_only=True)
+    # profile = ProfileSerializer(write_only=True)
     bio = serializers.CharField(source='profile.bio', read_only=True)
     image = serializers.CharField(source='profile.image', read_only=True)
 

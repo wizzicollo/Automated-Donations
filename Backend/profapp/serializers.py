@@ -1,13 +1,13 @@
 from rest_framework import serializers
+from authentication.serializers import UserSerializer
 from .models import Profile
 
 
 class ProfileSerializer(serializers.ModelSerializer):
-    username = serializers.CharField(source='user.username')
+    
     bio = serializers.CharField(allow_blank=True, required=False)
-
+    user = UserSerializer(read_only = True)
 
     class Meta:
         model = Profile
-        fields = ('username', 'bio', 'image',)
-        read_only_fields = ('username',)
+        fields = ( 'bio', 'image', 'user')

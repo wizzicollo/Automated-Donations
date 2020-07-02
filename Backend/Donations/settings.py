@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-
+import cloudinary
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -26,6 +26,11 @@ SECRET_KEY = 'nezhyo&ne-xa!yo5g-$3%urufxq%z@iaa%(4r(7o@t(4&76%37'
 DEBUG = True
 
 ALLOWED_HOSTS = []
+
+cloudinary.config(
+cloud_name = 'dy81pnpbz',  
+  api_key = '365141166323363',  
+  api_secret = 'llyaeqpZhXEg1IEeFXBtdp0ZCFU') 
 
 
 # Application definition
